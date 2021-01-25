@@ -1,0 +1,1 @@
+(()=>{var e=document.querySelector(".bground"),t=document.querySelectorAll(".modal-btn");function o(){e.style.display="block"}document.querySelectorAll(".formData"),t.forEach((function(e){return e.addEventListener("click",o)}))})();
