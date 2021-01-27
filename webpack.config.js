@@ -1,14 +1,15 @@
 const path = require('path');
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
     polyfill: "babel-polyfill",
     app: "./src/modal.js"
   },
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "public/js")
+    path: path.resolve(__dirname, "public/js"),
+    publicPath: "/public/js"
   },
   module: {
     rules: [
