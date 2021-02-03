@@ -68,7 +68,8 @@
                   id="first"
                   name="first"
                   minlength="2"
-                /><br>
+                /><span class="error" id="error-firstName"></span>
+                <br>
               </div>
               <div
                 class="formData">
@@ -78,7 +79,9 @@
                   type="text"
                   id="last"
                   name="last"
-                /><br>
+                  minlength="2"
+                /><span class="error" id="error-lastName"></span>
+                <br>
               </div>
               <div
                 class="formData">
@@ -88,7 +91,8 @@
                   type="email"
                   id="email"
                   name="email"
-                /><br>
+                /><span class="error" id="error-email"></span>
+                <br>
               </div>
               <div
                 class="formData">
@@ -98,12 +102,14 @@
                   type="date"
                   id="birthdate"
                   name="birthdate"
-                /><br>
+                /><span class="error" id="error-birthdate"></span>
+                <br>
               </div>
               <div
                 class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                <span class="error" id="error-number"></span>
               </div>
               <p class="text-label">Quelles villes ?</p>
               <div
@@ -175,6 +181,7 @@
                   Portland</label
                 >
               </div>
+              <span class="error" id="error-location"></span>
 
               <div
                 class="formData">
@@ -196,6 +203,8 @@
                 </label>
                 <br>
               </div>
+              <span class="error" id="error-terms"></span>
+
               <input
                 class="btn-submit"
                 type="submit"

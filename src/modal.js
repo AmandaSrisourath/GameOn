@@ -28,18 +28,53 @@ closeModalBtn.forEach((elt) => elt.addEventListener("click", closeModal));
 function closeModal() {
   modalbg.style.display = "none";
 }
+// validation first name
+function validateFirstName() {
+  // ON RECUPERE L'ELEMENT DU DOM QUI A POUR ID FIRST ET ON LE STOCK DANS LA CONST firstNameElt
+  const firstNameElt = document.querySelector("#first");
+  // ON RECUPERE L'ATTRIBUT VALUE DE L'ELEMENT INPUT CONTENU DANS LA CONST firstNameElt
+  const firstName = firstNameElt.value;
+  if (firstName.length >= 2 ) {
+    return true;
+  } else {
+    document.querySelector("#error-firstName") .innerHTML="Veuillez entrer 2 caractères ou plus pour le champ du prénom."
+    return false;
+  }
+}
+
+// validation last name
+function validateLastName() {
+  const lastNameElt = document.querySelector("#last");
+  const lastName = lastNameElt.value;
+  if (lastName.length >= 2) {
+    return true;
+  } else {
+    document.querySelector("#error-lastName") .innerHTML="Veuillez entrer 2 caractères ou plus pour le champ du nom."
+    return false;
+  }
+}
 
 // validation email
 function validateEmail() {
   const mailFormat = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/;
   const mail = document.querySelector("#email");
   if (mail.value.match(mailFormat)) {
-    console.log("Valid email address!");
     return true;
-  }
-  else {
-    console.log("You have entered an invalid email address!");
+  } else {
+    document.querySelector("#error-email") .innerHTML="Veuillez vérifier l'adresse mail."
     return false;
+  }
+}
+
+// validation birthdate
+function validateBirthdate() {
+  const dateFormat = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+  const date = document.querySelector("#birthdate");
+  if (date.value.match(dateFormat)) {
+    document.querySelector("#error-birthdate") .innerHTML="Vous devez entrer votre date de naissance."
+    return false;
+  } else {
+    return true;
   }
 }
 
@@ -48,9 +83,10 @@ function validateTournament() {
   const tournament = document.querySelector("#quantity");
   const parsed = parseInt(tournament.value, 10);
   if (isNaN(parsed)) {
-    console.log("C'est pas bon gros naze !");
+    document.querySelector("#error-number") .innerHTML="Vous devez donner un nombre."
+    return false;
   } else {
-    console.log("Bravo !");
+    return true;
   }
 }
 
@@ -58,36 +94,35 @@ function validateTournament() {
 function validateLocation() {
   let isChecked = false;
   const locations = document.querySelectorAll(".location-checkbox");
+  // POUR CHAQUE ELEMENT DU TABLEAU LOCATIONS ON EXECUTE UNE FONCTION
   locations.forEach((locationInput) => {
     if (locationInput.checked) {
       isChecked = true;
     }
   })
-  console.log(isChecked);
+  if (isChecked === false) {
+    document.querySelector("#error-location") .innerHTML="Vous devez choisir une option."
+  }
   return isChecked;
 }
 
 // validation terms
 function validateTerms() {
   const termsCheckBox = document.querySelector("#checkbox1");
-  console.log(termsCheckBox.checked);
-  return termsCheckBox.checked;
+  if (termsCheckBox.checked) {
+    return true;
+  } else {
+    document.querySelector("#error-terms") .innerHTML="Vous devez vérifier que vous acceptez les termes et conditions."
+    return false;
+  }
 }
 
 // validation methods
 function validate() {
-  // ON RECUPERE L'ELEMENT DU DOM QUI A POUR ID FIRST ET ON LE STOCK DANS LA CONST firstNameElt
-  const firstNameElt = document.querySelector("#first");
-  const lastNameElt = document.querySelector("#last");
-  // ON RECUPERE L'ATTRIBUT VALUE DE L'ELEMENT INPUT CONTENU DANS LA CONST firstNameElt
-  const firstName = firstNameElt.value;
-  const lastName = lastNameElt.value;
-  if (firstName.length >= 2 && lastName.length >= 2) {
-    console.log('Bravo !');
-  } else {
-    console.log('C\'est pas bon du tout !');
-  }
+  const isFirstNameValid = validateFirstName();
+  const isLastNameValid = validateLastName();
   const isEmailValid = validateEmail();
+  const isDateValid = validateBirthdate();
   const isTournamentValid = validateTournament();
   const isLocationChecked = validateLocation();
   const isTermsChecked = validateTerms();
