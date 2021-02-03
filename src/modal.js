@@ -68,9 +68,8 @@ function validateEmail() {
 
 // validation birthdate
 function validateBirthdate() {
-  const dateFormat = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
   const date = document.querySelector("#birthdate");
-  if (date.value.match(dateFormat)) {
+  if (date.value === "") {
     document.querySelector("#error-birthdate") .innerHTML="Vous devez entrer votre date de naissance."
     return false;
   } else {
@@ -126,6 +125,9 @@ function validate() {
   const isTournamentValid = validateTournament();
   const isLocationChecked = validateLocation();
   const isTermsChecked = validateTerms();
-  // KEEP DATA FORM
+  if (isFirstNameValid === true && isLastNameValid === true && isEmailValid === true && isDateValid === true && isTournamentValid === true && isLocationChecked === true && isTermsChecked === true) {
+    alert("Merci! Votre réservation a été reçue.")
+    return true;
+  }
   return false;
 }
