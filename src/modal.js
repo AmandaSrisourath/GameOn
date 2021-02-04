@@ -21,18 +21,24 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// close modal event
+/**
+ * close modal event
+ */
 closeModalBtn.forEach((elt) => elt.addEventListener("click", closeModal));
 
-// close modal form on x clic
+/**
+ * close modal form
+ */
 function closeModal() {
   modalbg.style.display = "none";
 }
-// validation first name
+
+/**
+ * validate firstName have at least 2 caracters
+ * @returns {boolean}
+ */
 function validateFirstName() {
-  // ON RECUPERE L'ELEMENT DU DOM QUI A POUR ID FIRST ET ON LE STOCK DANS LA CONST firstNameElt
   const firstNameElt = document.querySelector("#first");
-  // ON RECUPERE L'ATTRIBUT VALUE DE L'ELEMENT INPUT CONTENU DANS LA CONST firstNameElt
   const firstName = firstNameElt.value;
   if (firstName.length >= 2 ) {
     return true;
@@ -42,7 +48,10 @@ function validateFirstName() {
   }
 }
 
-// validation last name
+/**
+ * validate lastName have at least 2 caracters
+ * @returns {boolean}
+ */
 function validateLastName() {
   const lastNameElt = document.querySelector("#last");
   const lastName = lastNameElt.value;
@@ -54,7 +63,10 @@ function validateLastName() {
   }
 }
 
-// validation email
+/**
+ * validate email format
+ * @returns {boolean}
+ */
 function validateEmail() {
   const mailFormat = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/;
   const mail = document.querySelector("#email");
@@ -66,7 +78,10 @@ function validateEmail() {
   }
 }
 
-// validation birthdate
+/**
+ * validate date format
+ * @returns {boolean}
+ */
 function validateBirthdate() {
   const date = document.querySelector("#birthdate");
   if (date.value === "") {
@@ -77,7 +92,10 @@ function validateBirthdate() {
   }
 }
 
-// validation tournament
+/**
+ * validate is a number
+ * @returns {boolean}
+ */
 function validateTournament() {
   const tournament = document.querySelector("#quantity");
   const parsed = parseInt(tournament.value, 10);
@@ -89,11 +107,13 @@ function validateTournament() {
   }
 }
 
-// validation location
+/**
+ * validate location is checked
+ * @returns {boolean}
+ */
 function validateLocation() {
   let isChecked = false;
   const locations = document.querySelectorAll(".location-checkbox");
-  // POUR CHAQUE ELEMENT DU TABLEAU LOCATIONS ON EXECUTE UNE FONCTION
   locations.forEach((locationInput) => {
     if (locationInput.checked) {
       isChecked = true;
@@ -105,7 +125,10 @@ function validateLocation() {
   return isChecked;
 }
 
-// validation terms
+/**
+ * validate terms is checked
+ * @returns {boolean}
+ */
 function validateTerms() {
   const termsCheckBox = document.querySelector("#checkbox1");
   if (termsCheckBox.checked) {
@@ -116,7 +139,10 @@ function validateTerms() {
   }
 }
 
-// validation methods
+/**
+ * validate form inputs
+ * @returns {boolean}
+ */
 function validate() {
   const isFirstNameValid = validateFirstName();
   const isLastNameValid = validateLastName();
