@@ -50,12 +50,11 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close close-action"></span>
           <div class="modal-body">
             <form
+              id="reserve-form"
               name="reserve"
-              action="index.html"
-              method="get"
               onsubmit="return validate();"
             >
               <div
@@ -208,6 +207,16 @@
                 value="C'est parti"
               />
             </form>
+            <div id="succes-modal">
+              <p id="succes-message">
+                Merci ! Votre réservation a été reçue.
+              </p>
+              <input
+                class="btn-close button close-action"
+                type="button"
+                value="Fermer"
+              />
+            </div>
           </div>
         </div>
       </div>

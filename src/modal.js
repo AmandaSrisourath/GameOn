@@ -11,7 +11,9 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeModalBtn = document.querySelectorAll(".close");
+const closeModalBtn = document.querySelectorAll(".close-action");
+const reserveForm = document.querySelector("#reserve-form");
+const succesModal = document.querySelector("#succes-modal");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -19,6 +21,9 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  succesModal.style.display = "none";
+  reserveForm.style.display = "block";
+
 }
 
 /**
@@ -152,8 +157,9 @@ function validate() {
   const isLocationChecked = validateLocation();
   const isTermsChecked = validateTerms();
   if (isFirstNameValid === true && isLastNameValid === true && isEmailValid === true && isDateValid === true && isTournamentValid === true && isLocationChecked === true && isTermsChecked === true) {
-    alert("Merci! Votre réservation a été reçue.")
-    return true;
+    reserveForm.style.display = "none";
+    succesModal.style.display = "block";
+    reserveForm.reset();
   }
   return false;
 }

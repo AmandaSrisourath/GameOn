@@ -125,6 +125,7 @@ main {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
+  margin-left: 160px;
 }
 
 .button:hover {
@@ -186,6 +187,21 @@ input {
   font-size: 20px;
   height: 48px;
 }
+
+#succes-modal {
+  color: #e54858;
+  display: block;
+  width: 420px;
+}
+
+#succes-message {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  width: 300px;
+  margin: 275px 62px;
+}
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -555,12 +571,21 @@ footer {
   .hero-section {
     min-height: initial;
   }
-
   .hero-img img {
     margin-top: 32px;
   }
   .copyrights {
     margin-top: 0px;
+  }
+  .content {
+    margin: 20% auto;
+  }
+  #succes-message {
+    width: 275px;
+    margin: 275px 22px;
+  }
+  .button {
+    margin-left: 115px;
   }
 }
 
