@@ -23,7 +23,6 @@ function launchModal() {
   modalbg.style.display = "block";
   succesModal.style.display = "none";
   reserveForm.style.display = "block";
-
 }
 
 /**
@@ -45,10 +44,12 @@ function closeModal() {
 function validateFirstName() {
   const firstNameElt = document.querySelector("#first");
   const firstName = firstNameElt.value;
+  const firstNameError = document.querySelector("#error-firstName");
   if (firstName.length >= 2 ) {
+    firstNameError.innerHTML=""
     return true;
   } else {
-    document.querySelector("#error-firstName") .innerHTML="Veuillez entrer 2 caractères ou plus pour le champ du prénom."
+     firstNameError.innerHTML="Veuillez entrer 2 caractères ou plus pour le champ du prénom."
     return false;
   }
 }
@@ -60,10 +61,12 @@ function validateFirstName() {
 function validateLastName() {
   const lastNameElt = document.querySelector("#last");
   const lastName = lastNameElt.value;
+  const lastNameError = document.querySelector("#error-lastName");
   if (lastName.length >= 2) {
+    lastNameError.innerHTML=""
     return true;
   } else {
-    document.querySelector("#error-lastName") .innerHTML="Veuillez entrer 2 caractères ou plus pour le champ du nom."
+    lastNameError.innerHTML="Veuillez entrer 2 caractères ou plus pour le champ du nom."
     return false;
   }
 }
@@ -75,10 +78,12 @@ function validateLastName() {
 function validateEmail() {
   const mailFormat = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9]+$/;
   const mail = document.querySelector("#email");
+  const mailError = document.querySelector("#error-email");
   if (mail.value.match(mailFormat)) {
+    mailError.innerHTML=""
     return true;
   } else {
-    document.querySelector("#error-email") .innerHTML="Veuillez vérifier l'adresse mail."
+     mailError.innerHTML="Veuillez vérifier l'adresse mail."
     return false;
   }
 }
@@ -89,10 +94,12 @@ function validateEmail() {
  */
 function validateBirthdate() {
   const date = document.querySelector("#birthdate");
+  const dateError = document.querySelector("#error-birthdate");
   if (date.value === "") {
-    document.querySelector("#error-birthdate") .innerHTML="Vous devez entrer votre date de naissance."
+     dateError.innerHTML="Vous devez entrer votre date de naissance."
     return false;
   } else {
+    dateError.innerHTML=""
     return true;
   }
 }
@@ -104,10 +111,12 @@ function validateBirthdate() {
 function validateTournament() {
   const tournament = document.querySelector("#quantity");
   const parsed = parseInt(tournament.value, 10);
+  const tournamentError = document.querySelector("#error-number");
   if (isNaN(parsed)) {
-    document.querySelector("#error-number") .innerHTML="Vous devez donner un nombre."
+     tournamentError.innerHTML="Vous devez donner un nombre."
     return false;
   } else {
+    tournamentError.innerHTML=""
     return true;
   }
 }
@@ -119,13 +128,15 @@ function validateTournament() {
 function validateLocation() {
   let isChecked = false;
   const locations = document.querySelectorAll(".location-checkbox");
+  const locationsError = document.querySelector("#error-location");
   locations.forEach((locationInput) => {
     if (locationInput.checked) {
+      locationsError.innerHTML=""
       isChecked = true;
     }
   })
   if (isChecked === false) {
-    document.querySelector("#error-location") .innerHTML="Vous devez choisir une option."
+     locationsError.innerHTML="Vous devez choisir une option."
   }
   return isChecked;
 }
@@ -136,10 +147,12 @@ function validateLocation() {
  */
 function validateTerms() {
   const termsCheckBox = document.querySelector("#checkbox1");
+  const termsError = document.querySelector("#error-terms");
   if (termsCheckBox.checked) {
+    termsError.innerHTML=""
     return true;
   } else {
-    document.querySelector("#error-terms") .innerHTML="Vous devez vérifier que vous acceptez les termes et conditions."
+     termsError.innerHTML="Vous devez vérifier que vous acceptez les termes et conditions."
     return false;
   }
 }
