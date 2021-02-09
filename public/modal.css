@@ -558,18 +558,22 @@ footer {
 }
 
 @media screen and (max-width: 483px) {
+  .main-navbar {
+    width: 100%;
+  }
   .hero-headline {
     font-size: 2.4rem;
-    width: 320px;
   }
   .hero-text {
-    width: 320px;
     font-size: 1.2rem;
     text-align: justify;
     margin-top: 40px;
   }
   .hero-section {
     min-height: initial;
+  }
+  .hero-content {
+    min-width: 0px;
   }
   .hero-img img {
     margin-top: 32px;
@@ -581,11 +585,10 @@ footer {
     margin: 20% auto;
   }
   #succes-message {
-    width: 275px;
     margin: 275px 22px;
   }
-  .button {
-    margin-left: 115px;
+  .button-modal {
+    margin-left: 135px;
   }
 }
 

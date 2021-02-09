@@ -4,25 +4,25 @@
     <meta charset="utf-8" />
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="../GameOn/public/modal.css" />
+    <link rel="stylesheet" href="public/modal.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans" />
   </head>
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="../GameOn/public/Logo.png" width="250" height="45" />
+      <img alt="logo" src="public/Logo.png" width="250" height="45" />
     </div>
 
+      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+        <i class="fa fa-bars"></i></a>
     <div class="main-navbar">
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a>
+      
     </div>
     </div>
     <main>
@@ -213,7 +213,7 @@
                 Merci ! Votre réservation a été reçue.
               </p>
               <input
-                class="btn-close button close-action"
+                class="btn-close button close-action button-modal"
                 type="button"
                 value="Fermer"
               />
@@ -227,6 +227,6 @@
         Copyright 2014 - 2020, GameOn Inc.
       </p>
     </footer>
-    <script src="../GameOn/src/modal.js"></script>
+    <script src="src/modal.js"></script>
   </body>
 </html>
